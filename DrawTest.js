@@ -37,7 +37,9 @@ function countfunc() {
     
     if (count == 1)
     count = 2;
+    navigator.vibrate([200])
     else if (count == 2)
+    navigator.vibrate([200])
     count = 1;
 }
 
@@ -92,7 +94,7 @@ function clr() {
     
     ctx.strokeStyle = "rgba(255, 255, 255, 0.01)";
     ctx.clearRect(0, 0, touchzone.width, touchzone.height);
-    navigator.vibrate([500,200,500]);
+    navigator.vibrate([300,100,300]);
    
 }
 

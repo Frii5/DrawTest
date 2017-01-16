@@ -1,22 +1,50 @@
 <!DOCTYPE>
+
 <html>
+    
     <head>
+        
         <title>DrawTest</title>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <script type="text/javascript" src="DrawTest.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        
     </head>
 
     <body onload="init()">
-        <h1>Tegn her</h1>
+        
+<!--        <h1>Tegn her</h1>-->
+        
         <canvas id="mycanvas" width="500" height="500">     </canvas>
          
         <button type="button"onclick="black()">Sort</button> 
+        
         <button type="button"onclick="blue()">Blå</button> 
+        
         <button type="button"onclick="green()">Grøn</button>
-        <button type="button"onclick="clear()">Rød</button>
-        <button type="button"onclick="red()">Clear</button> 
-         
+        
+        <button type="button"onclick="rød()">Rød</button>
+        
+        <button type="button"onclick="clr()">Clear</button>
+        
+        <input id="button" type="submit" name="button" onclick="countfunc();" value="enter"/>
+        
     </body>
+
     
 </html>
+
+
+
+
+
+
+
+
+
+
+

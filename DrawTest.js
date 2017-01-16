@@ -35,12 +35,13 @@ function end(e) {
 
 function countfunc() {
     
-    if (count == 1)
+    if (count == 1) {
     count = 2;
-    navigator.vibrate([200])
+    navigator.vibrate([200]);
+    }
     else if (count == 2)
-    navigator.vibrate([200])
     count = 1;
+    navigator.vibrate([200]);
 }
 
 function black() {

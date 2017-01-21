@@ -1,50 +1,62 @@
-<!DOCTYPE>
-
+<!DOCTYPE html>
 <html>
-    
-    <head>
-        
-        <title>DrawTest</title>
-        
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <script type="text/javascript" src="DrawTest.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        
-    </head>
 
-    <body onload="init()">
-        
-<!--        <h1>Tegn her</h1>-->
-        
-        <canvas id="mycanvas" width="500" height="500">     </canvas>
-         
-        <button type="button"onclick="black()">Sort</button> 
-        
-        <button type="button"onclick="blue()">Blå</button> 
-        
-        <button type="button"onclick="green()">Grøn</button>
-        
-        <button type="button"onclick="rød()">Rød</button>
-        
-        <button type="button"onclick="clr()">Clear</button>
-        
-        <input id="button" type="submit" name="button" onclick="countfunc();" value="enter"/>
-        
-    </body>
+<head>
 
-    
+    <title>DrawTest</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="javascript.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="Stylesheet.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+
+    <meta name="theme-color" content="#303F9F" />
+
+</head>
+
+<body onload="init()">
+
+    <div id="mySidenav" class="sidenav">
+        <i href="javascript:void(0)" class="material-icons" onclick="closeNav()" id="closenavbutton">close</i>
+
+        <input id="Button" class="black" type="submit" name="button" value="Black" onclick="black()" />
+        <input id="Button" class="green" type="submit" name="button" value="Green" onclick="green()" />
+        <input id="Button" class="blue" type="submit" name="button" value="Blue" onclick="blue()" />
+        <input id="Button" class="colorred" type="submit" name="button" value="Red" onclick="rød()" />
+        <input id="Button" class="clr" type="submit" name="button" value="Clear" onclick="clr()" />
+
+        <div id="ChangeSize">
+            <i class="material-icons" id="SizeDown" type="submit" name="button" onclick="SizeDown()">keyboard_arrow_down</i>
+            <div id="CounterDisplay">5</div>
+            <i class="material-icons" id="SizeUp" type="submit" name="button" onclick="SizeUp()">keyboard_arrow_up</i>
+        </div>
+
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent material-icons" id="ChangeMode" type="submit" name="button" onclick="countfunc()">
+            Switch Mode
+        </button>
+
+    </div>
+
+    <div id="main">
+
+        <div id="NavBar">
+
+            <i onclick="openNav()" class="material-icons" id="OpnNavBtn">&nbsp;arrow_back<i>
+        
+        </div>
+            
+        <canvas id="mycanvas"></canvas>
+            
+    </div>
+
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

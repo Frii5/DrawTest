@@ -6,57 +6,54 @@
     <title>DrawTest</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="theme-color" content="#303F9F" /> <!-- changes notification bar color-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="javascript.js"></script> <!-- links to js -->
+    <script type="text/javascript" src="cordova.js"></script> <!-- links to cordova -->
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> <!-- link to google components -->
 
-    <script type="text/javascript" src="javascript.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="Stylesheet.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-
-    <meta name="theme-color" content="#303F9F" />
+    <link rel="stylesheet" type="text/css" href="Stylesheet.css"> <!-- links to css -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- links to material icon pack -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> <!-- links to roboto font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> <!-- links to googlemi-->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"> <!-- link to google components -->
+  
 
 </head>
 
-<body onload="init()">
+<body onload="init()"> <!-- loads function initialize in js, on html load-->
 
     <div id="mySidenav" class="sidenav">
-        <i href="javascript:void(0)" class="material-icons" onclick="closeNav()" id="closenavbutton">close</i>
+        <i href="javascript:void(0)" class="material-icons" onclick="closeNav()" id="closenavbutton">close</i> <!-- closes nav, using googlemi class -->
 
-        <input id="Button" class="black" type="submit" name="button" value="Black" onclick="black()" />
-        <input id="Button" class="green" type="submit" name="button" value="Green" onclick="green()" />
+        <input id="Button" class="black" type="submit" name="button" value="Black" onclick="black()" /> <!-- all buttons have classes and Id's for> -->
+        <input id="Button" class="green" type="submit" name="button" value="Green" onclick="green()" /> <!-- easier styling in css -->
         <input id="Button" class="blue" type="submit" name="button" value="Blue" onclick="blue()" />
         <input id="Button" class="colorred" type="submit" name="button" value="Red" onclick="rød()" />
         <input id="Button" class="clr" type="submit" name="button" value="Clear" onclick="clr()" />
 
-        <div id="ChangeSize">
+        <div id="ChangeSize"> 
             <i class="material-icons" id="SizeDown" type="submit" name="button" onclick="SizeDown()">keyboard_arrow_down</i>
-            <div id="CounterDisplay">5</div>
+            <div id="CounterDisplay">5</div> <!-- initial linesize (set by js) -->
             <i class="material-icons" id="SizeUp" type="submit" name="button" onclick="SizeUp()">keyboard_arrow_up</i>
         </div>
 
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent material-icons" id="ChangeMode" type="submit" name="button" onclick="countfunc()">
             Switch Mode
-        </button>
+        </button> <!-- this button is built with a google component, styled in css -->
 
     </div>
 
-    <div id="main">
+    <div id="main">  <!-- main page containing navbar and canvas -->
 
         <div id="NavBar">
-
-            <i onclick="openNav()" class="material-icons" id="OpnNavBtn">&nbsp;arrow_back<i>
-        
+            <i onclick="openNav()" class="material-icons" id="OpnNavBtn">&nbsp;arrow_back<i>            
         </div>
-            
+             
         <canvas id="mycanvas"></canvas>
             
     </div>
-
+            
 </body>
 </html>

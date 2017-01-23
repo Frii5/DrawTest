@@ -1,8 +1,8 @@
 var ctx; //context
 var lastPt = null; //last point
 var touchzone;
-var offsetleft = 0; //offset if parent is present
-var offsettop = 30; // --||--
+var offsetleft = 0; //offset if any divs
+var offsettop = 56; //are present above or beside canvas
 var count = 1;
 var lineSize = 5;
 
@@ -16,6 +16,8 @@ function init() {
     size();
 }
 
+//DRAW FUNCTIONS
+
 function draw(e) {
     e.preventDefault(); //cancels ongoing event
 
@@ -24,29 +26,31 @@ function draw(e) {
         ctx.beginPath(); //start drawing
         ctx.lineTo(lastPt.x, lastPt.y); //draw a line starting from (x,y)
         ctx.lineTo(e.touches[0].pageX - offsetleft, e.touches[0].pageY - offsettop);
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-        ctx.lineWidth = lineSize;
-        ctx.stroke();
+        ctx.lineCap = "round"; //Draw line with rounded end caps
+        ctx.lineJoin = "round"; //Create rounded corner when two lines meet
+        ctx.lineWidth = lineSize; //width of line, determined by variable
+        ctx.stroke(); //Draw line
 
     }
     lastPt = {
-        x: e.touches[0].pageX - offsetleft,
-        y: e.touches[0].pageY - offsettop
-    };
+        x: e.touches[0].pageX - offsetleft, //This segment of code, ensures that when you
+        y: e.touches[0].pageY - offsettop   //disconnect your finger from canvas/screen, 
+    };                                      //the drawing stops. This ensures, that two
+}                                           //lines wont connect if you start a new one.
+                                            //
+function end(e) {                           //It works by cancelling the "lastPt", wich is 
+    e.preventDefault();                     //defined in the function before.
+    lastPt = null;                          //
 }
 
-function end(e) {
-    e.preventDefault();
-    lastPt = null;
-}
+//BUTTON SWITCH
 
-function countfunc(e) {
+function countfunc(e) { //this function works as a switch
 
     if (count == 1) {
         count = 2;
-        navigator.vibrate([200]);
-        document.getElementById("ChangeMode").style.backgroundColor = "#D32F2F";
+        navigator.vibrate([200]); //Vibrate phone for 200 ms
+        document.getElementById("ChangeMode").style.backgroundColor = "#D32F2F"; //Set bgcolor of button
         e.preventDefault();
 
     } else if (count == 2)
@@ -57,15 +61,15 @@ function countfunc(e) {
 
 //COLORS
 
-function black() {
+function black() { //all color functions are triggered by their buttons
 
-    document.getElementById("mySidenav").style.backgroundColor = "#222222";
+    document.getElementById("mySidenav").style.backgroundColor = "#222222"; //Change bgcolor of sidenav
 
-    if (count == 1) {
-        ctx.strokeStyle = "black";
+    if (count == 1) { //check what mode the switch is in
+        ctx.strokeStyle = "black"; //change line to black
     } else {
-        ctx.fillStyle = "black";
-        ctx.fillRect(0, 0, touchzone.width, touchzone.height);
+        ctx.fillStyle = "black"; //Change fill color to black
+        ctx.fillRect(0, 0, touchzone.width, touchzone.height); //make a square with the dimensitons of canvas
     }
 }
 
@@ -110,49 +114,49 @@ function clr() {
 
     document.getElementById("mySidenav").style.backgroundColor = "#222222";
 
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.01)";
-    ctx.clearRect(0, 0, touchzone.width, touchzone.height);
-    navigator.vibrate([300, 100, 300]);
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.01)"; //Make invisible stroke
+    ctx.clearRect(0, 0, touchzone.width, touchzone.height); //Clear rectangle with canvas dimension
+    navigator.vibrate([300, 100, 300]); //long vibrate to indicate clearing
 }
 
-function size() {
-    ctx.canvas.width = window.innerWidth;
+function size() { //funciton activates with init, determines canvas size
+    ctx.canvas.width = window.innerWidth; 
     ctx.canvas.height = window.innerHeight;
 
 }
 
-function openNav() {
-    document.getElementById("mySidenav").style.width = "200px";
-    document.getElementById("main").style.marginLeft = "200px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    document.getElementById("OpnNavBtn").style.color = "rgba(255, 255, 255, 0.3)";
+function openNav() { //triggers when opennav btn is pressed
+    document.getElementById("mySidenav").style.width = "200px"; //opens sidenav
+    document.getElementById("main").style.marginLeft = "200px"; //pushes main
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)"; //fade main out
+    document.getElementById("OpnNavBtn").style.color = "rgba(255, 255, 255, 0.3)"; //fade button out
 
 }
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-    document.body.style.backgroundColor = "white";
-    document.getElementById("OpnNavBtn").style.color = "rgba(255, 255, 255, 1)";
+function closeNav() { //triggers when closenavbtn is pressed
+    document.getElementById("mySidenav").style.width = "0"; //Closes sidenav
+    document.getElementById("main").style.marginLeft = "0"; //Pushes main in place
+    document.body.style.backgroundColor = "white"; //fade in main
+    document.getElementById("OpnNavBtn").style.color = "rgba(255, 255, 255, 1)"; //fade in opnnavbtn
 
 }
 
-function SizeDown() {
+function SizeDown() { //triggers when sizeupbtn is pressed
 
-    if (lineSize == 1) {
+    if (lineSize == 1) { //checks if line is at 1, if it is vibrate the phone
         navigator.vibrate([300]);
     } else {
-        lineSize = lineSize - 1;
-        document.getElementById("CounterDisplay").innerHTML = lineSize;
+        lineSize = lineSize - 1; //else, change down (-1)
+        document.getElementById("CounterDisplay").innerHTML = lineSize; //display current val of linesize
     }
 }
 
-function SizeUp() {
+function SizeUp() { //triggers when sizedwnbtn is pressed
 
-    if (lineSize == 20) {
+    if (lineSize == 20) { //checks if line is at 20, if it is vibrate the phone
         navigator.vibrate([300]);
     } else {
-        lineSize = lineSize + 1;
-        document.getElementById("CounterDisplay").innerHTML = lineSize;
+        lineSize = lineSize + 1; //else, change up (+1)
+        document.getElementById("CounterDisplay").innerHTML = lineSize; //display current val of linesize
     }
 }

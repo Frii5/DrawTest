@@ -1,24 +1,31 @@
-html {
+html { /* size html */
     width: 100%;
     margin: 0px;
-    height: 100%
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  
 }
 
-body {
+body { /* set background color transition*/
     transition: background-color .5s;
     margin: 0px;
     height: 100%;
+    overflow-x: hidden; /* stops scrolling */
+    overflow-y: hidden; /* stops scrolling */
+    
 }
 
-#NavBar {
+#NavBar { /* Style navigation bar on top of canvas */
     margin: 0px;
     height: 46px;
     width: 412px;
     background-color: #303F9F;
-    padding-top: 10px;
+    padding-top: 10px; /* make sure symbols are placed correctly*/
+     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-#OpnNavBtn {
+#OpnNavBtn { /* styling of opnnavbtn */
     float: left;
     padding-top: 0px;
     color: white;
@@ -26,20 +33,22 @@ body {
     transition: 0.5s;
 }
 
-.sidenav {
+
+.sidenav { 
     height: 100%;
-    width: 0;
+    width: 0; /* changes with javascript */
     position: fixed;
-    z-index: 1;
+    z-index: 1; /* sidenav stays on top */
     top: 0;
     left: 0;
     background-color: #111;
-    overflow-x: hidden;
+    overflow-x: hidden; /* stops scrolling */
     transition: 0.5s;
-    padding-top: 56px;
+    padding-top: 56px; /* first button (black), has same padding as navbar */
+    
 }
 
-#closenavbutton {
+#closenavbutton { /* positions closenavbtn */
     padding: 9px 0px 8px 32px;
     text-decoration: none;
     font-size: 25px;
@@ -57,7 +66,7 @@ body {
 }
 
 #main {
-    transition: margin-left .5s;
+    transition: margin-left .5s; /* ensures smooth transition of main */
     margin: 0px;
 }
 
@@ -65,16 +74,16 @@ body {
 /*BUTTONS*/
 
 #Button {
-    width: 100%;
-    height: 50px;
-    border: none;
+    width: 100%; /* whole width of sidenav */
+    height: 50px; /* main height of buttons */
+    border: none; /* removes normal button border */
     font-family: "Roboto";
     font-weight: 500;
     font-size: 24px;
 }
 
 #Button:focus {
-    outline: 0;
+    outline: 0; /* removes button focus border */
 }
 
 .black {
@@ -107,7 +116,7 @@ body {
     box-shadow: inset 0px 40px 24px -44px rgba(0, 0, 0, 0.4);
 }
 
-#ChangeSize {
+#ChangeSize { /* main div for btn's that change strokesize */
     width: 100%;
     height: 50px;
     float: left;
@@ -119,11 +128,12 @@ body {
 
 #SizeDown {
     background-color: #212121;
-    height: 46px;
+    height: 48px;
     float: left;
     width: 33%;
     font-size: 48px;
-    padding-top: 4px;
+    padding-top: 2px; /* padding is 2px, and height is 48px, so the arrow is moved down, since its text*/
+    box-shadow: inset 0px 40px 24px -44px rgba(0, 0, 0, 0.4);
 }
 
 #CounterDisplay {
@@ -133,19 +143,23 @@ body {
     width: 34%;
     font-size: 24px;
     padding-top: 16px;
+    box-shadow: inset 0px 40px 24px -44px rgba(0, 0, 0, 0.4);
 }
 
 #SizeUp {
     background-color: #212121;
-    height: 46px;
+    height: 48px;
     float: left;
     width: 33%;
     font-size: 48px;
-    padding-top: 4px;
+    padding-top: 2px;
+    box-shadow: inset 0px 40px 24px -44px rgba(0, 0, 0, 0.4);
 }
 
 #ChangeMode {
     background-color: #303F9F;
     width: 100%;
     height: 50px;
+    
 }
+
